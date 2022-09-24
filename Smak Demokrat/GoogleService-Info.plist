@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>220615930498-vfonpp394fst9dlr3uj5fua09qv9abe7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.220615930498-vfonpp394fst9dlr3uj5fua09qv9abe7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB-LLtfDXPa1x1uXKDL2WIWjBdF6GcnZuM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>220615930498</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>polo.Smak-Demokrat</string>
+	<key>PROJECT_ID</key>
+	<string>smak-demokrat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>smak-demokrat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:220615930498:ios:9bdb6d810a1c56e6e0ba9b</string>
+</dict>
+</plist>
