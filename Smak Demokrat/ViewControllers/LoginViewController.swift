@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestore
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -20,9 +20,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setUp()
     }
@@ -42,17 +43,61 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        getEmail()
-//        let userName = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//        let pass = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//
+        //check if textfield is email or username
+        let userName = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let pass = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-//        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-//          guard let strongSelf = self else { return }
-//          // ...
-//        }
+        if userName.contains("@")
+        {
+            //if its an email
+            self.login(userName,pass)
+            
+        }else
+        {
+            //check if username exists
+            checkUsername(userName) { (success) in
+            if success == true {
+                self.getEmail() { (email) in
+                    
+                    self.login(email, pass)
+                }
+            }else
+            {
+                //if no username exists
+                self.printError("Användarnamnet existerar inte")
+                self.passwordTextField.text = ""
+            }
+            }
+        }
+        
+        
+        
+
+
     }
     
+    
+    func login(_ emailString:String,_ pass:String)
+    {
+        //signing in user
+        Auth.auth().signIn(withEmail: emailString, password: pass) { result, error in
+            //if sign in not accepted
+            if error != nil
+            {
+                self.printError("Användarnamn eller lösenord fel")
+                self.passwordTextField.text = ""
+            }else
+            {
+                // go to home screen
+                let homeVC =
+                self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as?
+                HomeViewController
+                
+                self.view.window?.rootViewController = homeVC
+                self.view.window?.makeKeyAndVisible()
+            }
+        }
+    }
     
     
     
@@ -74,21 +119,36 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func getEmail()
+    //get email by using username to be able to login
+    func getEmail(completion: @escaping (String) -> Void)
     {
-        let db = Firestore.firestore()
-        let docRef = db.collection("users").document("email")
+        let userName = userNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docRef = Firestore.firestore()
+           .collection("users")
+           .whereField("username", isEqualTo: userName)
 
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-               
+        // Get data
+        docRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            } else if querySnapshot!.documents.count != 1 {
+                print("More than one document or none")
             } else {
-                print("Document does not exist")
+                let document = querySnapshot!.documents.first
+                let dataDescription = document?.data()
+                let email = dataDescription?["email"]
+                completion(email as! String)
             }
         }
     }
     
-    //RETURN STRING VAR!!!!!!!!!!!!!!!!!!
+    
+
+    
+    func printError(_ message:String)
+    {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
 }
+

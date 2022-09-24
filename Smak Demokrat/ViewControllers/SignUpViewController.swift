@@ -80,6 +80,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             return "Lösenorden måste matcha"
         }
         
+        let cleanUser = userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if cleanUser!.contains("@")
+        {
+            return "Användarnamn får ej innehålla @"
+        }
+        
         
         
         
