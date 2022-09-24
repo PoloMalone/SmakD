@@ -75,6 +75,7 @@
 		05BAF84928D8B28B00528AC4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84828D8B28B00528AC4 /* FirebaseMessaging */; };
 		05BAF84B28D8B28B00528AC4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84A28D8B28B00528AC4 /* FirebaseStorage */; };
 		05BAF84D28D8B28B00528AC4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84C28D8B28B00528AC4 /* FirebaseStorageCombine-Community */; };
+		05F2795728DFA64E00300320 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2795628DFA64E00300320 /* AdminHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		0587302228D7793200086873 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0587302428D7793E00086873 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0587302628D7794900086873 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		05F2795628DFA64E00300320 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				0587302428D7793E00086873 /* LoginViewController.swift */,
 				0587302628D7794900086873 /* HomeViewController.swift */,
 				05872FF628D778CF00086873 /* ViewController.swift */,
+				05F2795628DFA64E00300320 /* AdminHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				0587302528D7793E00086873 /* LoginViewController.swift in Sources */,
 				05709E9A28D78EA80002BE7E /* Constants.swift in Sources */,
 				05872FF528D778CF00086873 /* SceneDelegate.swift in Sources */,
+				05F2795728DFA64E00300320 /* AdminHomeViewController.swift in Sources */,
 				05709E9B28D78EA80002BE7E /* Utilities.swift in Sources */,
 				0587302728D7794900086873 /* HomeViewController.swift in Sources */,
 			);
