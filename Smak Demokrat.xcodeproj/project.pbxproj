@@ -75,7 +75,9 @@
 		05BAF84928D8B28B00528AC4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84828D8B28B00528AC4 /* FirebaseMessaging */; };
 		05BAF84B28D8B28B00528AC4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84A28D8B28B00528AC4 /* FirebaseStorage */; };
 		05BAF84D28D8B28B00528AC4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 05BAF84C28D8B28B00528AC4 /* FirebaseStorageCombine-Community */; };
-		05F2795728DFA64E00300320 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2795628DFA64E00300320 /* AdminHomeViewController.swift */; };
+		05F2795B28E3574800300320 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 05F2795A28E3574800300320 /* SideMenu */; };
+		05F2796628E364E700300320 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2796528E364E700300320 /* AdminHomeViewController.swift */; };
+		05F2796A28E36B5E00300320 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F2796928E36B5E00300320 /* SideMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +118,8 @@
 		0587302228D7793200086873 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0587302428D7793E00086873 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0587302628D7794900086873 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		05F2795628DFA64E00300320 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		05F2796528E364E700300320 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		05F2796928E36B5E00300320 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,7 @@
 				056251D728D8BAED00F0CC99 /* FirebaseStorageCombine-Community in Frameworks */,
 				05BAF82928D8B28B00528AC4 /* FirebaseAppCheck in Frameworks */,
 				05BAF82728D8B28B00528AC4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				05F2795B28E3574800300320 /* SideMenu in Frameworks */,
 				05BAF84928D8B28B00528AC4 /* FirebaseMessaging in Frameworks */,
 				05BAF82D28D8B28B00528AC4 /* FirebaseAuth in Frameworks */,
 				056251B928D8BAED00F0CC99 /* FirebaseDynamicLinks in Frameworks */,
@@ -268,13 +272,30 @@
 		0587302828D7795200086873 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0587302228D7793200086873 /* SignUpViewController.swift */,
-				0587302428D7793E00086873 /* LoginViewController.swift */,
-				0587302628D7794900086873 /* HomeViewController.swift */,
 				05872FF628D778CF00086873 /* ViewController.swift */,
-				05F2795628DFA64E00300320 /* AdminHomeViewController.swift */,
+				05F2795C28E3634C00300320 /* HomeVC */,
+				05F2795828E3533C00300320 /* RegistrationVC */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05F2795828E3533C00300320 /* RegistrationVC */ = {
+			isa = PBXGroup;
+			children = (
+				0587302428D7793E00086873 /* LoginViewController.swift */,
+				0587302228D7793200086873 /* SignUpViewController.swift */,
+			);
+			path = RegistrationVC;
+			sourceTree = "<group>";
+		};
+		05F2795C28E3634C00300320 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				0587302628D7794900086873 /* HomeViewController.swift */,
+				05F2796528E364E700300320 /* AdminHomeViewController.swift */,
+				05F2796928E36B5E00300320 /* SideMenuTableViewController.swift */,
+			);
+			path = HomeVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +365,7 @@
 				056251D228D8BAED00F0CC99 /* FirebaseRemoteConfigSwift */,
 				056251D428D8BAED00F0CC99 /* FirebaseStorage */,
 				056251D628D8BAED00F0CC99 /* FirebaseStorageCombine-Community */,
+				05F2795A28E3574800300320 /* SideMenu */,
 			);
 			productName = "Smak Demokrat";
 			productReference = 05872FEF28D778CF00086873 /* Smak Demokrat.app */;
@@ -420,6 +442,7 @@
 			packageReferences = (
 				05BAF81F28D8B28B00528AC4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				056251A128D8BAED00F0CC99 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				05F2795928E3574800300320 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = 05872FF028D778CF00086873 /* Products */;
 			projectDirPath = "";
@@ -474,9 +497,10 @@
 				0587302528D7793E00086873 /* LoginViewController.swift in Sources */,
 				05709E9A28D78EA80002BE7E /* Constants.swift in Sources */,
 				05872FF528D778CF00086873 /* SceneDelegate.swift in Sources */,
-				05F2795728DFA64E00300320 /* AdminHomeViewController.swift in Sources */,
 				05709E9B28D78EA80002BE7E /* Utilities.swift in Sources */,
 				0587302728D7794900086873 /* HomeViewController.swift in Sources */,
+				05F2796628E364E700300320 /* AdminHomeViewController.swift in Sources */,
+				05F2796A28E36B5E00300320 /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +860,14 @@
 				kind = branch;
 			};
 		};
+		05F2795928E3574800300320 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1088,6 +1120,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 05BAF81F28D8B28B00528AC4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		05F2795A28E3574800300320 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05F2795928E3574800300320 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

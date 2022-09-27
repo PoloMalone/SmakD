@@ -111,13 +111,13 @@
                                         <rect key="frame" x="0.0" y="252" width="314" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bekräfta Lösenord*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd4-IT-oCN">
                                         <rect key="frame" x="0.0" y="315" width="314" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -193,7 +193,7 @@
                                         <rect key="frame" x="0.0" y="119" width="314" height="34"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -252,14 +252,66 @@
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qC-XQ-N82">
+                                <rect key="frame" x="0.0" y="73" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem image="text.justify" catalog="system" id="7Qf-rt-BdU">
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <connections>
+                                            <segue destination="ToG-ps-Ue4" kind="show" id="oKp-PN-HXX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.33118261739999999" green="0.22864663609999999" blue="0.60203530920000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d59-Z4-7ez"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.39299022480000001" green="0.28105806459999999" blue="0.75665434919999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="9qC-XQ-N82" firstAttribute="width" secondItem="OgK-8p-Uxf" secondAttribute="height" multiplier="207:448" id="Nn5-Tz-ge9"/>
+                            <constraint firstItem="9qC-XQ-N82" firstAttribute="centerX" secondItem="d59-Z4-7ez" secondAttribute="centerX" id="b5V-Qd-96h"/>
+                            <constraint firstItem="d59-Z4-7ez" firstAttribute="bottom" secondItem="9qC-XQ-N82" secondAttribute="bottom" constant="696" id="opV-PZ-XdC"/>
+                            <constraint firstItem="d59-Z4-7ez" firstAttribute="trailing" secondItem="9qC-XQ-N82" secondAttribute="trailing" id="t7n-jZ-uls"/>
+                            <constraint firstItem="9qC-XQ-N82" firstAttribute="leading" secondItem="d59-Z4-7ez" secondAttribute="leading" id="vtZ-C4-NSn"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMk-Kn-2Rh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2282.608695652174" y="406.47321428571428"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="6Yj-y5-oH3">
+            <objects>
+                <tableViewController id="yxS-2n-ia8" customClass="SideMenuTableViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Menu" id="4Zc-e4-oqk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfr-Df-d5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4147.826086956522" y="415.84821428571428"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="lCg-mP-pV5">
+            <objects>
+                <navigationController id="ToG-ps-Ue4" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wDt-Qa-3IR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tAL-k2-fZv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="yxS-2n-ia8" kind="relationship" relationship="rootViewController" id="jRe-FQ-ExQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Or-C4-aev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3193" y="416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2IZ-K4-lqa">
@@ -282,9 +334,7 @@
     </scenes>
     <resources>
         <image name="smakdemo.png" width="270" height="480"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
