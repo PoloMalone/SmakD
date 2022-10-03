@@ -149,6 +149,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
                 //go to home screen
                 self.goToVc()
+                
+
+            
             }
         }
         }
